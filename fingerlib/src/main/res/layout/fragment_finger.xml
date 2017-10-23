@@ -1,0 +1,75 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="270dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@drawable/base_white_button"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/iv"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="20dp"
+        android:src="@mipmap/common_fingerprint_icon" />
+
+    <TextView
+        android:layout_width="240dp"
+        android:layout_height="22dp"
+        android:text="传化钱包的Touch ID"
+        android:textColor="#FF000000"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="17dp"
+        android:visibility="gone"
+        android:textSize="17dp" />
+
+    <TextView
+        android:id="@+id/tv_msg"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:text="请验证已有指纹，完成付款"
+        android:textColor="#FF000000"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:textSize="16dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="25dp"
+        android:visibility="visible"
+        android:background="#FFD9D9D9" />
+
+    <LinearLayout
+        android:id="@+id/ll_btn"
+        android:layout_width="match_parent"
+        android:layout_height="43dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/base_white_button"
+            android:textColor="@color/color_0076FF"
+            android:text="取消" />
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:background="#FFD9D9D9" />
+
+        <Button
+            android:id="@+id/btn_confirm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/base_white_button"
+            android:textColor="@color/color_0076FF"
+            android:text="输入密码" />
+
+    </LinearLayout>
+
+</LinearLayout>
