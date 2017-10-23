@@ -13,9 +13,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        findViewById(R.id.btn).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+//        findViewById(R.id.btn).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
                 FingerFragment fingerFragment = new FingerFragment();
                 fingerFragment.show(getFragmentManager(),"fingerFragment");
                 fingerFragment.setmFragmentCallBack(new FingerFragment.Callback() {
@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "弹密码框", Toast.LENGTH_SHORT).show();
                     }
                 });
-            }
-        });
+//            }
+//        });
     }
 }
