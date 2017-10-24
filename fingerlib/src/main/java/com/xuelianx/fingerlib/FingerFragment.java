@@ -149,7 +149,7 @@ public class FingerFragment extends DialogFragment {
                             mCallback.onError();
                         }
                     }
-                }, 1000);
+                }, 5000);
             }
         });
     }
