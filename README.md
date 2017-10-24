@@ -8,10 +8,10 @@
 
 
 <!-- MarkdownTOC -->
-![](https://github.com/bearxxl/FingerIdentity/screenshoots/Screenshot_20171024-134510.png)
-![](https://github.com/bearxxl/FingerIdentity/screenshoots/Screenshot_20171024-134520.png) 
+![](https://github.com/bearxxl/FingerIdentity/raw/master/screenshoots/Screenshot_20171024-134510.png)
+![](https://github.com/bearxxl/FingerIdentity/raw/master/screenshoots/Screenshot_20171024-134520.png) 
 
-![](https://github.com/bearxxl/FingerIdentity/screenshoots/Screenshot_20171024-135934.png) 
+![](https://github.com/bearxxl/FingerIdentity/raw/master/Screenshots/Screenshot_20171024-135934.png) 
 
 - [Quick Start Guide](#quick-start-guide)
     - [准备工作](#准备工作)
