@@ -1,25 +1,21 @@
 <p align="center">
-<font size="30" color="#123456">Ö¸ÎÆÊ¶±ð</font>
+<font size="30" color="#123456">Ö¸ï¿½ï¿½Ê¶ï¿½ï¿½</font>
 </p>
 
 # Latest Version
 ##### _OCT 23, 2017_ - [v1.0.0](#1.0.0)
-Ö§³ÖAndroidÔ­Éú6.0¼°ÒÔÉÏ+÷È×å+ÈýÐÇ
+Ö§ï¿½ï¿½AndroidÔ­ï¿½ï¿½6.0ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½+ï¿½ï¿½ï¿½ï¿½+ï¿½ï¿½ï¿½ï¿½
 
 
 <!-- MarkdownTOC -->
-![](https://github.com/bearxxl/FingerIdentity/raw/master/screenshoots/Screenshot_20171024-134510.png)
-![](https://github.com/bearxxl/FingerIdentity/raw/master/screenshoots/Screenshot_20171024-134520.png) 
-
-![](https://github.com/bearxxl/FingerIdentity/raw/master/Screenshots/Screenshot_20171024-135934.png) 
-
+<img src="screenshots/screenshots1.png" height="400" alt="Screenshot"/> <img src="screenshots/screenshots2.png" height="400" alt="Screenshot"/> <img src="screenshots/screenshots3.png" height="400" alt="Screenshot"/>
 - [Quick Start Guide](#quick-start-guide)
-    - [×¼±¸¹¤×÷](#×¼±¸¹¤×÷)
-    - [Çåµ¥ÎÄ¼þ](#Çåµ¥ÎÄ¼þ)
-    - [µ÷ÓÃ²½Öè](#µ÷ÓÃ²½Öè)
-    - [»ìÏýÎÄ¼þ](#»ìÏýÎÄ¼þ)
+    - [×¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½](#×¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
+    - [ï¿½åµ¥ï¿½Ä¼ï¿½](#ï¿½åµ¥ï¿½Ä¼ï¿½)
+    - [ï¿½ï¿½ï¿½Ã²ï¿½ï¿½ï¿½](#ï¿½ï¿½ï¿½Ã²ï¿½ï¿½ï¿½)
+    - [ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½](#ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½)
 - [I want to know more!](#i-want-to-know-more)
-- [Ö§³Ö](#Ö§³Ö)
+- [Ö§ï¿½ï¿½](#Ö§ï¿½ï¿½)
 
 <!-- /MarkdownTOC -->
 
@@ -27,31 +23,31 @@
 # Quick Start Guide
 
 
-<a name="×¼±¸¹¤×÷"></a>
-## ×¼±¸¹¤×÷
+<a name="×¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"></a>
+## ×¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-### µ¼ÈëÒÀÀµ°ü
+### ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
- 1.app/build.gradleÏÂÌí¼ÓÒÀÀµ
+ 1.app/build.gradleï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  
      compile 'com.xuelianx.finger:fingerlib:1.0.0'
 
 
 
 
-<a name="µ÷ÓÃ²½Öè"></a>
-## µ÷ÓÃ²½Öè
+<a name="ï¿½ï¿½ï¿½Ã²ï¿½ï¿½ï¿½"></a>
+## ï¿½ï¿½ï¿½Ã²ï¿½ï¿½ï¿½
 
 ### Initialization
 
  
 ```java
-//³õÊ¼»¯
+//ï¿½ï¿½Ê¼ï¿½ï¿½
   FingerFragment fingerFragment = new FingerFragment();
 ```
 
 
-### Ê¹ÓÃÇ°³õÊ¼»¯½ÓÈë²ÎÊý
+### Ê¹ï¿½ï¿½Ç°ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 
 ```java
@@ -59,21 +55,21 @@
                 fingerFragment.setmFragmentCallBack(new FingerFragment.Callback() {
                     @Override
                     public void onSuccess() {
-                       //Ê¶±ð³É¹¦ Toast.makeText(MainActivity.this, "³É¹¦", Toast.LENGTH_SHORT).show();
+                       //Ê¶ï¿½ï¿½É¹ï¿½ Toast.makeText(MainActivity.this, "ï¿½É¹ï¿½", Toast.LENGTH_SHORT).show();
 
                     }
 
                     @Override
                     public void onError() {
-                       //Ê¶±ðÊ§°Ü Toast.makeText(MainActivity.this, "µ¯ÃÜÂë¿ò", Toast.LENGTH_SHORT).show();
+                       //Ê¶ï¿½ï¿½Ê§ï¿½ï¿½ Toast.makeText(MainActivity.this, "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", Toast.LENGTH_SHORT).show();
                     }
                 });
 ```
 
 
  
-<a name="»ìÏýÎÄ¼þ"></a>
-## »ìÏýÎÄ¼þ
+<a name="ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½"></a>
+## ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½
 
 
 ```java
@@ -88,16 +84,16 @@
 
 <a name="i-want-to-know-more"></a>
 # I want to know more!
-Ö§³ÖÔ­´´
-ÏîÄ¿²Î¿¼µØÖ·£ºhttp://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2017/0213/7109.html
-×¢Òâ£ºÕâÀïÈç¹ûÊ¹ÓÃ25°æ±¾µÄ¼æÈÝ¿â£¬¿ÉÄÜ»áµ¼ÖÂ²¿·Ö¼´Ê¹ÊÇ6.0ÏµÍ³µÄ»úÐÍÒ²²»ÄÜÕý³£Ê¹ÓÃÖ¸ÎÆÊ¶±ð
+Ö§ï¿½ï¿½Ô­ï¿½ï¿½
+ï¿½ï¿½Ä¿ï¿½Î¿ï¿½ï¿½ï¿½Ö·ï¿½ï¿½http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2017/0213/7109.html
+×¢ï¿½â£ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½25ï¿½æ±¾ï¿½Ä¼ï¿½ï¿½Ý¿â£¬ï¿½ï¿½ï¿½Ü»áµ¼ï¿½Â²ï¿½ï¿½Ö¼ï¿½Ê¹ï¿½ï¿½6.0ÏµÍ³ï¿½Ä»ï¿½ï¿½ï¿½Ò²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½Ö¸ï¿½ï¿½Ê¶ï¿½ï¿½
 
-¸ü¶à¹¦ÄÜ½Ó¿Ú£¬Ïê¼û×ÊÔ´°üÄÚdemo
+ï¿½ï¿½ï¿½à¹¦ï¿½Ü½Ó¿Ú£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ï¿½demo
 
-<a name="Ö§³Ö"></a>
-# Ö§³Ö
+<a name="Ö§ï¿½ï¿½"></a>
+# Ö§ï¿½ï¿½
 
 ```
-ÈºÃû³Æ£ºAndroid¼¼Êõ½»Á÷Èº
-Èº   ºÅ£º189532981
+Èºï¿½ï¿½ï¿½Æ£ï¿½Androidï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Èº
+Èº   ï¿½Å£ï¿½189532981
 ```
