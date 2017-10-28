@@ -8,9 +8,9 @@
 
 
 <!-- MarkdownTOC -->
-<img src="https://github.com/bearxxl/FingerIdentity/master/screenshoots/screenshoots1.png" height="400" alt="Screenshot"/>
-<img src="https://github.com/bearxxl/FingerIdentity/master/screenshoots/screenshoots1.png" height="400" alt="Screenshot"/>
-<img src="https://github.com/bearxxl/FingerIdentity/master/screenshoots/screenshoots1.png" height="400" alt="Screenshot"/>
+<img src="https://github.com/bearxxl/FingerIdentity/raw/master/screenshoots/screenshoots1.png" height="400" alt="Screenshot"/>
+<img src="https://github.com/bearxxl/FingerIdentity/raw/master/screenshoots/screenshoots1.png" height="400" alt="Screenshot"/>
+<img src="https://github.com/bearxxl/FingerIdentity/raw/master/screenshoots/screenshoots1.png" height="400" alt="Screenshot"/>
 
 - [Quick Start Guide](#quick-start-guide)
     - [准备工作](#准备工作)
