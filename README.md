@@ -31,7 +31,7 @@
 
  1.app/build.gradle下添加依赖
  
-     compile 'com.xuelianx.finger:fingerlib:1.0.0'
+     compile 'com.xuelianx.finger:fingerlib:1.0.1'
 
 
 
