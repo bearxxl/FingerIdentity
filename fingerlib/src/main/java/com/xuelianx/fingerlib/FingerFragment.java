@@ -38,6 +38,7 @@ public class FingerFragment extends DialogFragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
 
     }
@@ -69,12 +70,24 @@ public class FingerFragment extends DialogFragment {
                     }
                 }
             });
+
             mFingerprintIdentify = new FingerprintIdentify(getActivity().getApplicationContext(), new BaseFingerprint.FingerprintIdentifyExceptionListener() {
                 @Override
                 public void onCatchException(Throwable exception) {
-                    Toast.makeText(getActivity(),exception.getLocalizedMessage(),Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getActivity(), exception.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                 }
+
             });
+            if (mFingerprintIdentify != null && mFingerprintIdentify.isHardwareEnable()) {
+                if (!mFingerprintIdentify.isRegisteredFingerprint()) {
+                    Toast.makeText(getActivity(), "请先进入手机--设置，录入至少一个指纹", Toast.LENGTH_SHORT).show();
+                    dismiss();
+                }
+            } else {
+                Toast.makeText(getActivity(), "硬件不支持", Toast.LENGTH_SHORT).show();
+                dismiss();
+            }
+
             start();
         }
 
@@ -108,9 +121,9 @@ public class FingerFragment extends DialogFragment {
             @Override
             public void onNotMatch(int availableTimes) {
                 tv_msg.setTextColor(getResources().getColor(R.color.color_FB544B));
-                if (availableTimes==0){
+                if (availableTimes == 0) {
                     tv_msg.setText("指纹验证失败，转密码支付");
-                }else{
+                } else {
                     tv_msg.setText(R.string.verify_failed);
                 }
                 shake(iv);
@@ -119,9 +132,9 @@ public class FingerFragment extends DialogFragment {
 
             @Override
             public void onFailed(boolean isDeviceLocked) {
-                if (isDeviceLocked){
+                if (isDeviceLocked) {
                     tv_msg.setText("指纹验证失败，转密码支付");
-                }else{
+                } else {
                     tv_msg.setText("指纹验证失败，转密码支付");
                 }
 
@@ -171,6 +184,7 @@ public class FingerFragment extends DialogFragment {
         void onSuccess();
 
         void onError();
+
     }
 
     @Override
