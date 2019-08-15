@@ -6,6 +6,7 @@ import com.samsung.android.sdk.pass.Spass;
 import com.samsung.android.sdk.pass.SpassFingerprint;
 import com.samsung.android.sdk.pass.SpassInvalidStateException;
 import com.xuelianx.fingerlib.base.BaseFingerprint;
+import com.xuelianx.fingerlib.base.ExceptionListener;
 
 
 public class SamsungFingerprint extends BaseFingerprint {
@@ -13,7 +14,7 @@ public class SamsungFingerprint extends BaseFingerprint {
     private int mResultCode = -1;
     private SpassFingerprint mSpassFingerprint;
 
-    public SamsungFingerprint(Context context, FingerprintIdentifyExceptionListener exceptionListener) {
+    public SamsungFingerprint(Context context, ExceptionListener exceptionListener) {
         super(context, exceptionListener);
 
         try {

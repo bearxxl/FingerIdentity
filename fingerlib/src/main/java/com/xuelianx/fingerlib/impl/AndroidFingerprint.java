@@ -6,6 +6,7 @@ import android.support.v4.os.CancellationSignal;
 
 import com.xuelianx.fingerlib.aosp.FingerprintManagerCompat;
 import com.xuelianx.fingerlib.base.BaseFingerprint;
+import com.xuelianx.fingerlib.base.ExceptionListener;
 
 
 public class AndroidFingerprint extends BaseFingerprint {
@@ -13,11 +14,13 @@ public class AndroidFingerprint extends BaseFingerprint {
     private CancellationSignal mCancellationSignal;
     private FingerprintManagerCompat mFingerprintManagerCompat;
 
-    public AndroidFingerprint(Context context, FingerprintIdentifyExceptionListener exceptionListener) {
+    public AndroidFingerprint(Context context, ExceptionListener exceptionListener, boolean iSupportAndroidL) {
         super(context, exceptionListener);
 
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
-            return;
+        if (!iSupportAndroidL) {
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+                return;
+            }
         }
 
         try {

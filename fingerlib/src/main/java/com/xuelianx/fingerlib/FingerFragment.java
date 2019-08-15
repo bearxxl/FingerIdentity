@@ -14,14 +14,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.xuelianx.fingerlib.base.BaseFingerprint;
+import com.xuelianx.fingerlib.base.ExceptionListener;
+import com.xuelianx.fingerlib.base.FingerIdentifyListener;
+import com.xuelianx.fingerlib.base.FingerSupportExceptionListener;
 
 
 /**
- * Title: FingerFragment
+ * Title: FingerFragment.java
  * Description:
- * Copyright (c) 传化物流版权所有 2016
- * Created DateTime: 2017/9/14 16:28
- * Created by xxl.
+ * Copyright (c) 个人版权所有 2019/8/15
+ * Created DateTime: 2019/8/15 10:50
+ * Created by xuelianXiong.
  */
 public class FingerFragment extends DialogFragment {
 
@@ -70,24 +73,31 @@ public class FingerFragment extends DialogFragment {
                     }
                 }
             });
-
-            mFingerprintIdentify = new FingerprintIdentify(getActivity().getApplicationContext(), new BaseFingerprint.FingerprintIdentifyExceptionListener() {
+            mFingerprintIdentify = new FingerprintIdentify(getActivity());
+            mFingerprintIdentify.setSupportAndroidL(true);
+            mFingerprintIdentify.setFingerSupportExceptionListener(new FingerSupportExceptionListener() {
                 @Override
-                public void onCatchException(Throwable exception) {
-//                    Toast.makeText(getActivity(), exception.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                public void hardwareDisable() {
+                    Toast.makeText(getActivity(), "硬件不支持", Toast.LENGTH_SHORT).show();
+                    dismiss();
                 }
 
-            });
-            if (mFingerprintIdentify != null && mFingerprintIdentify.isHardwareEnable()) {
-                if (!mFingerprintIdentify.isRegisteredFingerprint()) {
+                @Override
+                public void registeredNone() {
                     Toast.makeText(getActivity(), "请先进入手机--设置，录入至少一个指纹", Toast.LENGTH_SHORT).show();
                     dismiss();
                 }
-            } else {
-                Toast.makeText(getActivity(), "硬件不支持", Toast.LENGTH_SHORT).show();
-                dismiss();
-            }
 
+            });
+            mFingerprintIdentify.setExceptionListener(new ExceptionListener() {
+                @Override
+                public void onCatchException(Throwable exception) {
+                    Toast.makeText(getActivity(), exception.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+            mFingerprintIdentify.setIsSupportMeiZu(true);
+            mFingerprintIdentify.setIsSupportSamsung(true);
+            mFingerprintIdentify.init();
             start();
         }
 
@@ -102,12 +112,11 @@ public class FingerFragment extends DialogFragment {
     @Override
     public void onResume() {
         super.onResume();
-
+//        mFingerprintIdentify.resumeIdentify();
     }
 
     public void start() {
-
-        mFingerprintIdentify.startIdentify(MAX_AVAILABLE_TIMES, new BaseFingerprint.FingerprintIdentifyListener() {
+        mFingerprintIdentify.startIdentify(MAX_AVAILABLE_TIMES, new FingerIdentifyListener() {
             @Override
             public void onSucceed() {
                 if (mCallback != null) {
@@ -132,12 +141,7 @@ public class FingerFragment extends DialogFragment {
 
             @Override
             public void onFailed(boolean isDeviceLocked) {
-                if (isDeviceLocked) {
-                    tv_msg.setText("指纹验证失败，转密码支付");
-                } else {
-                    tv_msg.setText("指纹验证失败，转密码支付");
-                }
-
+                tv_msg.setText("指纹验证失败，转密码支付");
                 tv_msg.setTextColor(getResources().getColor(R.color.color_FB544B));
                 new Handler().postDelayed(new Runnable() {
                     @Override

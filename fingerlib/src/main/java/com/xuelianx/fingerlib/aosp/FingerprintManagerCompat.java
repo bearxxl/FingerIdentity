@@ -8,7 +8,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.os.CancellationSignal;
 
-import  com.xuelianx.fingerlib.aosp.FingerprintManagerCompatApi23;
 
 import java.security.Signature;
 

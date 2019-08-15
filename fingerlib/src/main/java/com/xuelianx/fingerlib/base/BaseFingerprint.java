@@ -10,8 +10,9 @@ public abstract class BaseFingerprint {
     protected Context mContext;
 
     private Handler mHandler;
-    private FingerprintIdentifyListener mIdentifyListener;
-    private FingerprintIdentifyExceptionListener mExceptionListener;
+    private FingerIdentifyListener mIdentifyListener;
+    private ExceptionListener mExceptionListener;
+    protected FingerSupportExceptionListener mFingerSupportExceptionListener;//是否支持指纹
 
     private int mNumberOfFailures = 0;                      // number of failures
     private int mMaxAvailableTimes = 3;                     // the most available times
@@ -22,20 +23,19 @@ public abstract class BaseFingerprint {
     private boolean mIsCalledStartIdentify = false;         // if started identify
     private boolean mIsCanceledIdentify = false;            // if canceled identify
 
-    public BaseFingerprint(Context context, FingerprintIdentifyExceptionListener exceptionListener) {
+    public BaseFingerprint(Context context, ExceptionListener exceptionListener) {
         mContext = context;
         mExceptionListener = exceptionListener;
         mHandler = new Handler(Looper.getMainLooper());
     }
 
     // DO
-    public void startIdentify(int maxAvailableTimes, FingerprintIdentifyListener listener) {
+    public void startIdentify(int maxAvailableTimes, FingerIdentifyListener listener) {
         mMaxAvailableTimes = maxAvailableTimes;
         mIsCalledStartIdentify = true;
         mIdentifyListener = listener;
         mIsCanceledIdentify = false;
         mNumberOfFailures = 0;
-
         doIdentify();
     }
 
@@ -133,6 +133,7 @@ public abstract class BaseFingerprint {
         }
     }
 
+
     // GET & SET
     public boolean isEnable() {
         return mIsHardwareEnable && mIsRegisteredFingerprint;
@@ -163,17 +164,5 @@ public abstract class BaseFingerprint {
         return true;
     }
 
-    public interface FingerprintIdentifyListener {
-        void onSucceed();
 
-        void onNotMatch(int availableTimes);
-
-        void onFailed(boolean isDeviceLocked);
-
-        void onStartFailedByDeviceLocked();
-    }
-
-    public interface FingerprintIdentifyExceptionListener {
-        void onCatchException(Throwable exception);
-    }
 }
