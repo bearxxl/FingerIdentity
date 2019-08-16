@@ -13,7 +13,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.xuelianx.fingerlib.base.BaseFingerprint;
 import com.xuelianx.fingerlib.base.ExceptionListener;
 import com.xuelianx.fingerlib.base.FingerIdentifyListener;
 import com.xuelianx.fingerlib.base.FingerSupportExceptionListener;
@@ -74,8 +73,18 @@ public class FingerFragment extends DialogFragment {
                 }
             });
             mFingerprintIdentify = new FingerprintIdentify(getActivity());
-            mFingerprintIdentify.setSupportAndroidL(true);
-            mFingerprintIdentify.setFingerSupportExceptionListener(new FingerSupportExceptionListener() {
+            mFingerprintIdentify.setSupportAndroidL(false);
+
+            mFingerprintIdentify.setExceptionListener(new ExceptionListener() {
+                @Override
+                public void onCatchException(Throwable exception) {
+//                    Toast.makeText(getActivity(), exception.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+            mFingerprintIdentify.setIsSupportMeiZu(true);
+            mFingerprintIdentify.setIsSupportSamsung(true);
+            mFingerprintIdentify.init();
+            mFingerprintIdentify.checkSupport(new FingerSupportExceptionListener() {
                 @Override
                 public void hardwareDisable() {
                     Toast.makeText(getActivity(), "硬件不支持", Toast.LENGTH_SHORT).show();
@@ -88,17 +97,13 @@ public class FingerFragment extends DialogFragment {
                     dismiss();
                 }
 
-            });
-            mFingerprintIdentify.setExceptionListener(new ExceptionListener() {
                 @Override
-                public void onCatchException(Throwable exception) {
-                    Toast.makeText(getActivity(), exception.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                public void isEnable() {
+                    start();
                 }
+
             });
-            mFingerprintIdentify.setIsSupportMeiZu(true);
-            mFingerprintIdentify.setIsSupportSamsung(true);
-            mFingerprintIdentify.init();
-            start();
+
         }
 
         return mDialog;

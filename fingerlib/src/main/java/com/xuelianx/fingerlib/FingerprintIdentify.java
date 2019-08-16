@@ -58,8 +58,19 @@ public class FingerprintIdentify {
         mExceptionListener = exceptionListener;
     }
 
-    public void setFingerSupportExceptionListener(FingerSupportExceptionListener fingerSupportExceptionListener) {
+    public void checkSupport(FingerSupportExceptionListener fingerSupportExceptionListener) {
         mFingerSupportExceptionListener = fingerSupportExceptionListener;
+        if (null != mFingerSupportExceptionListener) {
+            if (!isHardwareEnable()) {
+                mFingerSupportExceptionListener.hardwareDisable();
+                return;
+            }
+            if (!isRegisteredFingerprint()) {
+                mFingerSupportExceptionListener.registeredNone();
+                return;
+            }
+            mFingerSupportExceptionListener.isEnable();
+        }
     }
 
     public void init() {
@@ -94,16 +105,6 @@ public class FingerprintIdentify {
             }
         }
 
-        if (null != mFingerSupportExceptionListener) {
-            if (!isHardwareEnable()) {
-                mFingerSupportExceptionListener.hardwareDisable();
-                return;
-            }
-            if (!isRegisteredFingerprint()) {
-                mFingerSupportExceptionListener.registeredNone();
-                return;
-            }
-        }
 
     }
 

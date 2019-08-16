@@ -80,20 +80,6 @@
   mFingerprintIdentify.setSupportAndroidL(true);//是否兼容5.0
   mFingerprintIdentify.setIsSupportMeiZu(true);//是否适配魅族
   mFingerprintIdentify.setIsSupportSamsung(true);//是否适配三星
-  //设置监听
-  mFingerprintIdentify.setFingerSupportExceptionListener(new FingerSupportExceptionListener(){
-                @Override
-                public void hardwareDisable() {
-                    Toast.makeText(getActivity(), "硬件不支持", Toast.LENGTH_SHORT).show();
-                    dismiss();
-                }
-
-                @Override
-                public void registeredNone() {
-                    Toast.makeText(getActivity(), "请先进入手机--设置，录入至少一个指纹", Toast.LENGTH_SHORT).show();
-                    dismiss();
-                }
-   });
    mFingerprintIdentify.setExceptionListener(new ExceptionListener() {
                 @Override
                 public void onCatchException(Throwable exception) {
@@ -102,6 +88,26 @@
             });
 
     mFingerprintIdentify.init();//初始化
+    //检测硬件是否支持，需在初始化之后判断
+     mFingerprintIdentify.checkSupport(new FingerSupportExceptionListener() {
+                    @Override
+                    public void hardwareDisable() {
+                        Toast.makeText(getActivity(), "硬件不支持", Toast.LENGTH_SHORT).show();
+                        dismiss();
+                    }
+
+                    @Override
+                    public void registeredNone() {
+                        Toast.makeText(getActivity(), "请先进入手机--设置，录入至少一个指纹", Toast.LENGTH_SHORT).show();
+                        dismiss();
+                    }
+
+                     @Override
+                     public void isEnable() {
+                        //指纹可用，开始识别
+                     }
+
+                });
 
     //开始识别
       mFingerprintIdentify.startIdentify(MAX_AVAILABLE_TIMES, new FingerIdentifyListener() {

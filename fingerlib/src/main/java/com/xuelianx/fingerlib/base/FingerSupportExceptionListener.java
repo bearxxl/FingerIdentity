@@ -12,4 +12,6 @@ public interface FingerSupportExceptionListener {
 
     void registeredNone();//没注册过指纹
 
+    void isEnable();//指纹可用
+
 }
